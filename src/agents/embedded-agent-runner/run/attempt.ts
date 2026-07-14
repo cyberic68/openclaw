@@ -613,9 +613,7 @@ export async function runEmbeddedAttempt(
             ...(boundaryTimezone ? { boundaryTimezone } : {}),
             includeBoundaryTimestamp,
             isRawModelRun,
-            ...(typeof preparedUserTurnMessage?.timestamp === "number"
-              ? { preparedUserTurnTimestamp: preparedUserTurnMessage.timestamp }
-              : {}),
+            ...(preparedUserTurnMessage ? { preparedUserTurnMessage } : {}),
             sessionAgentId,
             setActiveSessionSystemPrompt,
             ...(systemPromptReport ? { systemPromptReport } : {}),
